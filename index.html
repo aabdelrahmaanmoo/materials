@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Materials</title>
+<meta name="description" content="موادك كلها في مكان واحد: محاضرات وسكاشن وكتب الفرقة الرابعة، قسم الهندسة الزراعية، مرتبة حسب قسمك.">
+<meta property="og:title" content="Materials">
+<meta property="og:description" content="موادك كلها في مكان واحد: محاضرات وسكاشن وكتب الفرقة الرابعة، مرتبة حسب قسمك.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E4A2C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E4A2C'/%3E%3Ctext x='32' y='46' font-family='Arial Black,Arial' font-weight='900' font-size='40' text-anchor='middle' fill='%23D7F23B'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Platform palette: forest green + lime, greys tinted green */
+  :root {
+    --forest:#0E4A2C; --lime:#D7F23B;
+    --paper:#F6F8F2; --surface:#FFFFFF; --tint:#EEF2E7; --line:#E1E6DC;
+    --ink:#13201A; --soft:#5D6B63;
+    --brand:var(--forest); --glow:var(--lime);
+    --primary:var(--forest); --on-primary:var(--lime);
+    --band:var(--forest); --on-band:#E7EEE9; --band-soft:#B9C9BF;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:#0E1411; --surface:#151D19; --tint:#1C2621; --line:#25302A;
+      --ink:#E7EEE9; --soft:#97A59C;
+      --brand:var(--lime); --glow:var(--forest);
+      --primary:var(--lime); --on-primary:#0E2A1A;
+      --band:#151D19;
+      color-scheme:dark;
+    }
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:"Cairo", system-ui, sans-serif; font-size:17px; line-height:1.75; }
+  a { color:inherit; }
+  :focus-visible { outline:3px solid var(--primary); outline-offset:3px; border-radius:8px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+
+  .wrap { max-width:1080px; margin:0 auto; padding-inline:max(20px, env(safe-area-inset-left, 0px)); }
+  section { padding-block:72px; }
+  h2 { margin:0 0 8px; font-size:clamp(26px, 4vw, 34px); font-weight:900; line-height:1.3; text-wrap:balance; }
+  .lead { margin:0 0 36px; color:var(--soft); max-width:60ch; }
+
+  /* Header */
+  header { padding-block:20px; }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .mark { font-weight:900; font-size:24px; letter-spacing:-.3px; color:var(--brand); text-shadow:2px 2px 0 var(--glow); text-decoration:none; direction:ltr; }
+  .top-cta { font-weight:700; font-size:15px; text-decoration:none; color:var(--primary); padding:8px 14px; border-radius:10px; border:1.5px solid var(--line); background:var(--surface); }
+
+  /* Hero */
+  .hero { padding-block:24px 72px; }
+  .hero .wrap { display:grid; grid-template-columns:minmax(0, 1.1fr) minmax(0, .9fr); gap:48px; align-items:center; }
+  .hero .wordmark { margin:0; font-size:clamp(56px, 11vw, 104px); font-weight:900; line-height:1; letter-spacing:-2px; color:var(--brand); text-shadow:5px 5px 0 var(--glow); direction:ltr; text-align:right; }
+  .hero h1 { margin:22px 0 10px; font-size:clamp(26px, 4.4vw, 38px); font-weight:800; line-height:1.35; text-wrap:balance; }
+  .hero .intro { margin:0 0 28px; color:var(--soft); max-width:46ch; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:52px; padding:0 22px; white-space:nowrap; border-radius:14px; font-weight:800; font-size:17px; text-decoration:none; border:1.5px solid transparent; }
+  .btn.primary { background:var(--primary); color:var(--on-primary); }
+  .btn.ghost { background:var(--surface); border-color:var(--line); color:var(--ink); }
+  .btn svg { width:20px; height:20px; }
+  .depts { display:flex; flex-wrap:wrap; gap:8px; margin-top:28px; padding:0; list-style:none; }
+  .depts li { font-size:14px; font-weight:600; padding:4px 12px; border-radius:999px; background:var(--tint); color:var(--soft); }
+
+  /* Phone mockup */
+  .phone { justify-self:center; width:min(320px, 100%); border-radius:40px; padding:12px; background:#0B110E; box-shadow:0 30px 60px rgba(14,74,44,.25); }
+  .screen { border-radius:30px; overflow:hidden; background:#F6F8F2; color:#13201A; font-size:13px; line-height:1.5; }
+  .s-bar { display:flex; align-items:center; justify-content:space-between; padding:14px 16px 10px; background:#fff; border-bottom:1px solid #E1E6DC; }
+  .s-bar b { display:block; font-size:14px; }
+  .s-bar span { color:#5D6B63; font-size:11px; }
+  .s-icons { display:flex; gap:10px; color:#13201A; }
+  .s-icons svg { width:16px; height:16px; }
+  .s-body { padding:14px; }
+  .s-title { font-size:18px; font-weight:800; margin:0; }
+  .s-sub { color:#5D6B63; font-size:11px; margin:0 0 10px; }
+  .s-search { height:34px; border:1px solid #E1E6DC; border-radius:10px; background:#fff; color:#5D6B63; display:flex; align-items:center; padding:0 10px; font-size:11px; margin-bottom:12px; }
+  .s-group { font-size:11px; font-weight:800; color:#5D6B63; margin:4px 2px 6px; }
+  .s-list { background:#fff; border:1px solid #E1E6DC; border-radius:14px; overflow:hidden; margin-bottom:12px; }
+  .s-row { display:flex; align-items:center; gap:10px; padding:9px 12px; border-top:1px solid #E1E6DC; }
+  .s-row:first-child { border-top:0; }
+  .s-tile { flex:none; width:32px; height:32px; border-radius:9px; display:grid; place-items:center; background:#0E4A2C; color:#D7F23B; position:relative; }
+  .s-tile.file { background:#EEF2E7; color:#0E4A2C; }
+  .s-tile svg { width:16px; height:16px; }
+  .s-tile i { position:absolute; bottom:-3px; left:-3px; font-style:normal; font-size:7px; font-weight:800; background:#0E4A2C; color:#D7F23B; border:1.5px solid #fff; border-radius:4px; padding:0 3px; line-height:11px; }
+  .s-row b { display:block; font-size:12.5px; font-weight:700; }
+  .s-row small { color:#5D6B63; font-size:10.5px; }
+  .s-new { font-size:9.5px; font-weight:800; background:#D7F23B; color:#0E4A2C; border-radius:20px; padding:0 6px; margin-inline-start:4px; }
+
+  /* Features */
+  .grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; }
+  .card { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:22px; }
+  .card .ic { width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:var(--tint); color:var(--primary); margin-bottom:14px; }
+  .card .ic svg { width:22px; height:22px; }
+  .card h3 { margin:0 0 4px; font-size:18px; font-weight:800; }
+  .card p { margin:0; color:var(--soft); font-size:15.5px; }
+
+  /* How to join */
+  .band { background:var(--band); color:var(--on-band); }
+  .band h2 { color:#fff; }
+  .band .lead { color:var(--band-soft); }
+  @media (prefers-color-scheme: dark) { .band h2 { color:var(--ink); } }
+  .steps { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:16px; margin:0; padding:0; list-style:none; counter-reset:s; }
+  .steps li { counter-increment:s; padding:22px; border-radius:18px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); }
+  .steps li::before { content:counter(s, arabic-indic); display:grid; place-items:center; width:38px; height:38px; border-radius:50%; background:var(--lime); color:var(--forest); font-weight:900; font-size:18px; margin-bottom:12px; }
+  .steps b { display:block; font-size:17px; margin-bottom:4px; color:#fff; }
+  @media (prefers-color-scheme: dark) { .steps b { color:var(--ink); } }
+  .steps span { font-size:15px; color:var(--band-soft); }
+  .band .actions { margin-top:28px; }
+  .band .btn.primary { background:var(--lime); color:var(--forest); }
+
+  /* FAQ */
+  .faq { display:grid; gap:10px; max-width:760px; }
+  details { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:4px 18px; }
+  summary { cursor:pointer; font-weight:800; padding:12px 0; list-style:none; display:flex; justify-content:space-between; gap:12px; }
+  summary::-webkit-details-marker { display:none; }
+  summary::after { content:"+"; color:var(--primary); font-size:22px; line-height:1; }
+  details[open] summary::after { content:"−"; }
+  details p { margin:0 0 14px; color:var(--soft); }
+
+  /* Home-screen shortcut */
+  .install { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; }
+  .install ol { margin:8px 0 0; padding-inline-start:24px; color:var(--soft); list-style:arabic-indic; }
+  .install li { margin-bottom:4px; }
+
+  footer { padding-block:40px 56px; border-top:1px solid var(--line); }
+  footer .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; }
+  footer p { margin:0; color:var(--soft); font-size:15px; }
+  .wa { display:inline-flex; align-items:center; gap:8px; font-weight:800; text-decoration:none; color:var(--primary); }
+  .wa svg { width:20px; height:20px; }
+
+  @media (max-width: 860px) {
+    .hero .wrap { grid-template-columns:1fr; gap:40px; }
+    .grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+    .steps { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    section { padding-block:52px; }
+    .grid, .steps, .install { grid-template-columns:1fr; }
+    .btn { flex:1; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="mark" href="#top">Materials</a>
+    <a class="top-cta" href="https://script.google.com/macros/s/AKfycbzl2Q0M26XLzboMqUEw5xrZ49Q8s4wKj4uXxs0H0Qr_nfQZdyM_7W-kMMJFXjM_ZFwWIA/exec">ادخل المنصة</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="wordmark">Materials</p>
+        <h1>موادك كلها في مكان واحد، مترتبة على قسمك</h1>
+        <p class="intro">منصة الفرقة الرابعة، قسم الهندسة الزراعية. المحاضرات والسكاشن والكتب لكل مادة، تفتحها من موبايلك في ثواني من غير ما تدور في الجروبات.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://script.google.com/macros/s/AKfycbzl2Q0M26XLzboMqUEw5xrZ49Q8s4wKj4uXxs0H0Qr_nfQZdyM_7W-kMMJFXjM_ZFwWIA/exec">ادخل المنصة
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
+          <a class="btn ghost" href="#join">إزاي أدخل؟</a>
+        </div>
+        <ul class="depts" aria-label="الأقسام">
+          <li>عام هندسة</li><li>هندسة الري والصرف</li><li>هندسة القوى والآلات الزراعية</li><li>هندسة النظم الحيوية</li>
+        </ul>
+      </div>
+
+      <div class="phone" role="img" aria-label="شكل المنصة على الموبايل: قايمة المواد وآخر الملفات اللي اتضافت">
+        <div class="screen" aria-hidden="true">
+          <div class="s-bar">
+            <div><b>عبدالرحمن محمد</b><span>هندسة الري والصرف</span></div>
+            <div class="s-icons">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
+            </div>
+          </div>
+          <div class="s-body">
+            <p class="s-title">المواد</p>
+            <p class="s-sub">الترم الأول</p>
+            <div class="s-search">ابحث باسم ملف أو مادة</div>
+            <div class="s-group">اتضاف الأسبوع ده</div>
+            <div class="s-list">
+              <div class="s-row"><span class="s-tile file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><i>PDF</i></span>
+                <div><b>المحاضرة التالتة <span class="s-new">جديد</span></b><small>تصميم نظم الري، 2.4 ميجا</small></div></div>
+              <div class="s-row"><span class="s-tile file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg><i>PDF</i></span>
+                <div><b>سكشن 2 <span class="s-new">جديد</span></b><small>ميكانيكا التربة، 900 كيلو</small></div></div>
+            </div>
+            <div class="s-group">كل المواد</div>
+            <div class="s-list">
+              <div class="s-row"><span class="s-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+                <div><b>تصميم نظم الري</b><small>12 ملف</small></div></div>
+              <div class="s-row"><span class="s-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+                <div><b>ميكانيكا التربة</b><small>8 ملف</small></div></div>
+              <div class="s-row"><span class="s-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+                <div><b>هيدروليكا الآبار</b><small>5 ملف</small></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>كل اللي محتاجه للمذاكرة</h2>
+      <p class="lead">اتعملت لطلبة الفرقة الرابعة بالظبط: كل طالب بيشوف مواد قسمه بس، ومترتبة زي ما بتذاكر.</p>
+      <div class="grid">
+        <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+          <h3>مواد قسمك بس</h3><p>كل مادة فيها المحاضرات والسكاشن والكتاب، كل حاجة في تاب لوحدها.</p></div>
+        <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
+          <h3>بحث سريع</h3><p>اكتب اسم الملف أو المادة وهتلاقيه في ثانية.</p></div>
+        <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2 8 12.7 4 8.8 9.5 8z"/></svg></div>
+          <h3>الجديد قدامك</h3><p>قسم "اتضاف الأسبوع ده" وعلامة "جديد" على أي ملف لسه نازل.</p></div>
+        <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+          <h3>افتح أو نزّل</h3><p>الـ PDF والصور بتتفتح جوه المنصة، وتقدر تنزلها على موبايلك.</p></div>
+        <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg></div>
+          <h3>وضع ليلي</h3><p>للمذاكرة بالليل من غير ما عينك تتعب، بزرار واحد.</p></div>
+        <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <h3>للدفعة بس</h3><p>الدخول بكود خاص بيك، وكل طالب جديد بيتراجع من الأدمنز قبل ما يدخل.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="join">
+    <div class="wrap">
+      <h2>إزاي تدخل المنصة</h2>
+      <p class="lead">مرة واحدة بس، وبعدها تدخل بالكود بتاعك.</p>
+      <ol class="steps">
+        <li><b>اطلب كود</b><span>افتح المنصة، ودوس "معاكش كود؟ اطلب واحد"، واكتب اسمك ورقمك وقسمك.</span></li>
+        <li><b>استلم الكود</b><span>الأدمن هيبعتلك كود الدخول على واتساب.</span></li>
+        <li><b>ادخل بالكود</b><span>الصق الكود في صفحة الدخول، وكمّل بياناتك أول مرة.</span></li>
+        <li><b>استنى الموافقة</b><span>بعد ما الأدمنز يوافقوا، ادخل بنفس الكود وهتلاقي موادك.</span></li>
+      </ol>
+      <div class="actions">
+        <a class="btn primary" href="https://script.google.com/macros/s/AKfycbzl2Q0M26XLzboMqUEw5xrZ49Q8s4wKj4uXxs0H0Qr_nfQZdyM_7W-kMMJFXjM_ZFwWIA/exec">افتح المنصة واطلب كودك</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="install">
+    <div class="wrap">
+      <h2>خليها على شاشة موبايلك</h2>
+      <p class="lead">اعمل اختصار للمنصة جنب تطبيقاتك، وافتحها بلمسة واحدة.</p>
+      <div class="install">
+        <div class="card"><h3>أندرويد</h3>
+          <ol><li>افتح المنصة من متصفح Chrome على موبايلك.</li><li>دوس النقط التلاتة فوق في الركن.</li><li>اختار Add to Home screen من القايمة.</li><li>دوس Add للتأكيد.</li></ol></div>
+        <div class="card"><h3>آيفون</h3>
+          <ol><li>افتح المنصة من متصفح Safari على الآيفون.</li><li>دوس زرار المشاركة اللي تحت في النص.</li><li>اختار Add to Home Screen من القايمة.</li><li>دوس Add للتأكيد.</li></ol></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>أسئلة بتتكرر</h2>
+      <div class="faq">
+        <details><summary>المنصة بفلوس؟</summary><p>لأ، مجانية تمامًا لطلبة الدفعة.</p></details>
+        <details><summary>ينفع أدي الكود بتاعي لحد؟</summary><p>لأ، الكود بتاعك لوحدك. لو حد دخل بيه من جهاز تاني، هيتعملك تسجيل خروج من جهازك، وهتحتاج موافقة الأدمنز تاني من الأول.</p></details>
+        <details><summary>مش لاقي ملف أو عندي مشكلة؟</summary><p>كلمنا على واتساب من الرقم اللي تحت، وابعت الشكاوي والاقتراحات كمان.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><span class="mark" style="font-size:20px">Materials</span>، الفرقة الرابعة، قسم الهندسة الزراعية</p>
+    <a class="wa" href="https://wa.me/201015785924" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+      الدعم والشكاوي والاقتراحات</a>
+  </div>
+</footer>
+
+</body>
+</html>
