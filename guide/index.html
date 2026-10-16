@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دليل الأدمن · Materials</title>
+<meta name="description" content="إزاي تدير منصة Materials: تفعيل الطلاب، رفع الملفات، المواد والأقسام، والمزامنة مع الدرايف.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E4A2C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E4A2C'/%3E%3Ctext x='32' y='46' font-family='Arial Black,Arial' font-weight='900' font-size='40' text-anchor='middle' fill='%23D7F23B'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Same palette as the platform: forest + lime, green-tinted neutrals */
+  :root {
+    --forest:#0E4A2C; --lime:#D7F23B;
+    --paper:#F6F8F2; --surface:#FFFFFF; --tint:#EEF2E7; --line:#E1E6DC;
+    --ink:#13201A; --soft:#5D6B63; --danger:#B83227;
+    --brand:var(--forest); --glow:var(--lime);
+    --primary:var(--forest); --on-primary:var(--lime);
+    color-scheme:light;
+  }
+  /* Dark theme always, same as the showcase page */
+  @media all {
+    :root {
+      --paper:#0E1411; --surface:#151D19; --tint:#1C2621; --line:#25302A;
+      --ink:#E7EEE9; --soft:#97A59C; --danger:#F08A80;
+      --brand:var(--lime); --glow:var(--forest);
+      --primary:var(--lime); --on-primary:#0E2A1A;
+      color-scheme:dark;
+    }
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:76px; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:"Cairo", system-ui, sans-serif; font-size:17px; line-height:1.85; }
+  a { color:inherit; }
+  :focus-visible { outline:3px solid var(--primary); outline-offset:3px; border-radius:8px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } }
+  .wrap { max-width:820px; margin:0 auto; padding-inline:max(16px, env(safe-area-inset-left, 0px)); }
+
+  /* Header + quick nav */
+  header { position:sticky; top:0; z-index:5; background:color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:60px; }
+  .mark { font-weight:900; font-size:22px; color:var(--brand); text-shadow:2px 2px 0 var(--glow); text-decoration:none; direction:ltr; }
+  .open-app { font-weight:800; font-size:15px; text-decoration:none; color:var(--on-primary); background:var(--primary); padding:8px 16px; border-radius:12px; white-space:nowrap; }
+  .hero { padding:36px 0 8px; }
+  .hero h1 { margin:0; font-size:clamp(30px, 6vw, 42px); font-weight:900; line-height:1.3; }
+  .hero p { margin:8px 0 0; color:var(--soft); max-width:56ch; }
+  nav.toc { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 8px; padding:0; list-style:none; }
+  nav.toc a { display:inline-block; text-decoration:none; font-size:14px; font-weight:700; padding:6px 14px; border-radius:999px; background:var(--surface); border:1px solid var(--line); }
+  nav.toc a:hover { border-color:var(--primary); }
+
+  /* Sections */
+  section { padding:40px 0 8px; }
+  h2 { display:flex; align-items:center; gap:12px; margin:0 0 6px; font-size:clamp(23px, 4.4vw, 28px); font-weight:900; line-height:1.4; }
+  h2 .n { flex:none; width:36px; height:36px; display:grid; place-items:center; border-radius:12px; background:var(--primary); color:var(--on-primary); font-size:17px; }
+  .lead { margin:0 0 18px; color:var(--soft); }
+  h3 { margin:22px 0 8px; font-size:18px; font-weight:800; }
+  .card { background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:18px 20px; margin:0 0 14px; }
+  ol.steps { margin:0; padding:0; list-style:none; counter-reset:s; }
+  ol.steps li { position:relative; padding:0 42px 12px 0; counter-increment:s; }
+  ol.steps li:last-child { padding-bottom:0; }
+  ol.steps li::before { content:counter(s); position:absolute; right:0; top:2px; width:28px; height:28px; display:grid; place-items:center; border-radius:50%; background:var(--tint); color:var(--brand); font-weight:800; font-size:14px; }
+  ul.dots { margin:0; padding-inline-start:20px; }
+  ul.dots li { margin:0 0 6px; }
+  b.ui { display:inline-block; font-weight:800; padding:0 8px; border-radius:8px; background:var(--tint); line-height:1.7; }
+  .fab-chip { display:inline-grid; place-items:center; width:30px; height:30px; vertical-align:middle; border-radius:9px; background:var(--forest); color:var(--lime); }
+  .fab-chip svg { width:17px; height:17px; }
+  code { font-family:ui-monospace, Menlo, Consolas, monospace; font-size:.88em; background:var(--tint); padding:1px 6px; border-radius:6px; direction:ltr; unicode-bidi:isolate; }
+
+  /* Callouts */
+  .note { border-radius:16px; padding:14px 18px; margin:0 0 14px; background:var(--tint); border-inline-start:4px solid var(--brand); }
+  .note.warn { border-inline-start-color:var(--danger); }
+  .note b:first-child { display:block; margin-bottom:2px; }
+
+  /* "Student says..." troubleshooting table */
+  .qa { display:grid; gap:10px; }
+  .qa details { background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:4px 18px; }
+  .qa summary { cursor:pointer; font-weight:800; padding:10px 0; list-style:none; }
+  .qa summary::-webkit-details-marker { display:none; }
+  .qa summary::after { content:"+"; float:left; color:var(--soft); font-weight:700; }
+  .qa details[open] summary::after { content:"−"; }
+  .qa p { margin:0 0 12px; color:var(--soft); }
+
+  footer { margin-top:48px; padding:28px 0 40px; border-top:1px solid var(--line); color:var(--soft); font-size:15px; }
+  footer a { font-weight:800; color:var(--brand); }
+  @media (max-width:480px) { .card { padding:16px; } ol.steps li { padding-right:38px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="mark" href="#top">Materials</a>
+    <a class="open-app" href="https://aabdelrahmaanmoo.github.io/materials/app/">افتح المنصة</a>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <h1>دليل الأدمن</h1>
+    <p>كل اللي محتاج تعرفه عشان تدير المنصة: تفعيل الطلاب، ورفع الملفات وترتيبها، والمزامنة مع الدرايف. كل حاجة بتتعمل من الموبايل.</p>
+    <nav class="toc" aria-label="المحتوى">
+      <a href="#login">الدخول</a>
+      <a href="#students">الطلاب والأكواد</a>
+      <a href="#edit">وضع التعديل</a>
+      <a href="#upload">رفع ملف</a>
+      <a href="#organize">مواد وأقسام</a>
+      <a href="#manage">اسم ونقل وحذف</a>
+      <a href="#sync">المزامنة</a>
+      <a href="#help">لو طالب قالك</a>
+    </nav>
+  </div>
+
+  <section id="login">
+    <h2><span class="n">1</span>الدخول</h2>
+    <div class="card">
+      <ol class="steps">
+        <li>افتح المنصة، واختار تاب <b class="ui">أدمن</b> في صفحة الدخول.</li>
+        <li>اكتب اسم المستخدم والباسوورد بتوعك. لو نسيتهم، هتلاقيهم في شيت <code>Admins</code> في ملف قاعدة البيانات.</li>
+        <li>هتدخل على <b class="ui">لوحة الأدمن</b>، وفيها الطلاب والأكواد، وزرار <b class="ui">المواد</b> اللي فوق.</li>
+      </ol>
+    </div>
+    <div class="note warn"><b>5 محاولات غلط ورا بعض</b>الحساب بيتقفل ربع ساعة، وبعدها تقدر تجرب تاني.</div>
+  </section>
+
+  <section id="students">
+    <h2><span class="n">2</span>الطلاب والأكواد</h2>
+    <p class="lead">أي طالب لازم ياخد موافقة أدمنين اتنين عشان يدخل. لو فيه أدمن واحد بس، موافقته لوحدها كفاية.</p>
+
+    <h3>طالب معاه كود وسجّل بياناته</h3>
+    <div class="card">
+      <ol class="steps">
+        <li>هيظهر في تاب <b class="ui">للتفعيل</b>، ومعاه اسمه وقسمه ورقمه وعدد الموافقات.</li>
+        <li>اتأكد إنه من الدفعة، ودوس <b class="ui">موافقة</b>.</li>
+        <li>لما أدمن تاني يوافق، الطالب يتفعّل ويقدر يدخل على طول.</li>
+      </ol>
+    </div>
+
+    <h3>طالب معهوش كود وبعت طلب</h3>
+    <div class="card">
+      <ol class="steps">
+        <li>الطلب بيظهر في تاب <b class="ui">طلبات كود</b>.</li>
+        <li>دوس <b class="ui">إنشاء كود</b>. الكود بيتعمل بموافقتك انت محسوبة.</li>
+        <li>دوس <b class="ui">ابعته على واتساب</b>، وهيفتحلك شات الطالب والرسالة مكتوبة جاهزة.</li>
+        <li>الطالب لسه محتاج موافقة أدمن تاني من تاب <b class="ui">للتفعيل</b>.</li>
+      </ol>
+    </div>
+
+    <h3>توليد أكواد فاضية</h3>
+    <div class="card">
+      <ol class="steps">
+        <li>من تاب <b class="ui">الأكواد</b>، اكتب العدد ودوس <b class="ui">توليد</b>.</li>
+        <li>انسخ الكود وابعته للطالب بنفسك. الطالب يدخل بيه ويكتب بياناته، ويظهر عندك في <b class="ui">للتفعيل</b>.</li>
+      </ol>
+    </div>
+
+    <h3>سحب الموافقة والحذف</h3>
+    <ul class="dots">
+      <li><b class="ui">سحب موافقتي</b>: الطالب بيخرج على طول لو موافقته نقصت عن المطلوب، وبيرجع للمراجعة.</li>
+      <li><b class="ui">حذف الطالب</b> أو <b class="ui">رفض</b>: الكود بيبطل نهائي، والطالب محتاج كود جديد.</li>
+    </ul>
+    <div class="note"><b>الكود لجهاز واحد بس</b>لو الطالب دخل بنفس الكود من جهاز تاني والجهاز الأول لسه داخل، الجهازين بيتقفلوا والطالب بيرجع لتاب <b class="ui">للتفعيل</b>، ويحتاج موافقتين من الأول. بيوصلكم إيميل بده.</div>
+  </section>
+
+  <section id="edit">
+    <h2><span class="n">3</span>المواد ووضع التعديل</h2>
+    <p class="lead">كل إدارة الملفات بتتعمل من جوه صفحة <b class="ui">المواد</b> نفسها، بنفس الشكل اللي الطالب بيشوفه.</p>
+    <div class="card">
+      <ol class="steps">
+        <li>من لوحة الأدمن دوس <b class="ui">المواد</b>. فوق هتلاقي تابات الأقسام، وتاب <b class="ui">الكل</b> اللي فيه كل المواد حتى المخفية.</li>
+        <li>تحت على الشمال فيه زرار أخضر عايم <span class="fab-chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></span>. دوسه وهتطلعلك أدوات المكان اللي انت فيه.</li>
+        <li>عشان تعدّل حاجة موجودة، اختار <b class="ui">وضع التعديل</b>. هيظهر شريط أصفر فوق، وزرار ⋮ جنب كل مادة وفولدر وملف.</li>
+        <li>لما تخلص دوس <b class="ui">خروج</b> في الشريط الأصفر، وترجع تشوف المواد زي الطالب بالظبط.</li>
+      </ol>
+    </div>
+    <div class="note"><b>الطلاب مش بيشوفوا أي حاجة من دي</b>الزرار العايم ووضع التعديل للأدمنز بس.</div>
+  </section>
+
+  <section id="upload">
+    <h2><span class="n">4</span>رفع ملف</h2>
+    <div class="card">
+      <ol class="steps">
+        <li>ادخل المادة، واختار التاب اللي عايز ترفع فيه، زي <b class="ui">المحاضرات</b>.</li>
+        <li>دوس الزرار العايم، وبعدها <b class="ui">رفع ملف هنا</b>.</li>
+        <li>اختار الملف. الاسم بيتملي لوحده من اسم الملف، وعدّله للاسم اللي الطلاب هيشوفوه.</li>
+        <li>لو التاب فيه فولدرات جواه، اختار المكان من <b class="ui">المكان</b>.</li>
+        <li>دوس <b class="ui">رفع</b>. الملف بيظهر للطلاب على طول.</li>
+      </ol>
+    </div>
+    <ul class="dots">
+      <li>مسموح بملفات <code>PDF</code> والصور بس، لحد 20 ميجا للملف. لو أكبر، قسّمه لملفين.</li>
+      <li>الاسم اللي بتكتبه للطلاب بس. اسم الملف الأصلي على الدرايف بيفضل زي ما هو.</li>
+      <li>سمّي بشكل ثابت عشان الترتيب يطلع صح: <b class="ui">محاضرة 1</b>، <b class="ui">محاضرة 2</b>، وبعدها الموضوع لو حابب.</li>
+      <li>الملف الجديد بياخد علامة <b class="ui">جديد</b> عند الطلاب لمدة أسبوع.</li>
+    </ul>
+  </section>
+
+  <section id="organize">
+    <h2><span class="n">5</span>مواد وأقسام وفولدرات</h2>
+    <div class="card">
+      <h3 style="margin-top:0">مادة جديدة</h3>
+      <ol class="steps">
+        <li>من صفحة المواد الرئيسية، دوس الزرار العايم وبعدها <b class="ui">مادة جديدة</b>.</li>
+        <li>اكتب الاسم، واختار الأقسام اللي هتشوفها.</li>
+        <li>المادة بتتعمل وجواها <b class="ui">المحاضرات</b> و<b class="ui">السكاشن</b> جاهزين.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">قسم جديد جوه مادة</h3>
+      <p style="margin:0">القسم بيظهر للطالب كتاب جديد، زي <b class="ui">امتحانات قديمة</b>. ادخل المادة، ودوس الزرار العايم، وبعدها <b class="ui">قسم جديد</b>.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin-top:0">فولدر جوه قسم</h3>
+      <p style="margin:0">مفيد لتقسيم كبير، زي <b class="ui">ملخصات</b> جوه المحاضرات. ادخل التاب، ودوس الزرار العايم، وبعدها <b class="ui">فولدر جديد هنا</b>.</p>
+    </div>
+    <h3>مين يشوف المادة</h3>
+    <p style="margin:0 0 14px">في وضع التعديل، دوس ⋮ جنب المادة، وبعدها <b class="ui">الأقسام اللي تشوفها</b>، وعلّم على الأقسام. التغيير بيظهر للطلاب على طول. المادة اللي مش متعلّم عليها أي قسم بتختفي من الطلاب، وتفضل ظاهرة لكم في تاب <b class="ui">الكل</b>.</p>
+  </section>
+
+  <section id="manage">
+    <h2><span class="n">6</span>تغيير الاسم والنقل والحذف</h2>
+    <p class="lead">كلها من زرار ⋮ في وضع التعديل. ولخيارات التاب نفسه، دوس الزرار العايم وبعدها <b class="ui">خيارات القسم</b>.</p>
+    <div class="card">
+      <ul class="dots">
+        <li><b class="ui">تغيير الاسم</b>: بيغيّر الاسم في المنصة بس، والدرايف زي ما هو. المادة استثناء، لأن اسمها بيتغير في الدرايف وشيت المواد كمان.</li>
+        <li><b class="ui">نقل</b>: للملفات بس. تختار المادة والقسم اللي هيروح له.</li>
+        <li><b class="ui">حذف</b>: بيودّي الحاجة لسلة الدرايف. حذف مادة أو قسم بيحذف كل اللي جواه.</li>
+      </ul>
+    </div>
+    <div class="note warn"><b>اتحذف حاجة بالغلط؟</b>افتح سلة الدرايف من حساب المنصة، ورجّعها بـ <b class="ui">Restore</b>، وبعدين دوس <b class="ui">مزامنة مع الدرايف</b>. السلة بتمسح أي حاجة عدّى عليها 30 يوم.</div>
+    <div class="note"><b>لو غيّرت اسم تاب المحاضرات أو السكاشن</b>التاب ده هيتنقل بعد التابات التانية في الترتيب، لأن الترتيب مربوط بالاسمين دول.</div>
+  </section>
+
+  <section id="sync">
+    <h2><span class="n">7</span>المزامنة مع الدرايف</h2>
+    <p class="lead">الطلاب بيشوفوا المواد من فهرس جاهز، مش من الدرايف مباشرة، وده اللي مخلي المنصة سريعة.</p>
+    <div class="card">
+      <ul class="dots">
+        <li>أي حاجة بتعملها من المنصة بتظهر للطلاب على طول، ومش محتاجة مزامنة.</li>
+        <li>لو حد رفع أو حذف أو نقل حاجة على الدرايف مباشرة، المنصة بتلقطها لوحدها كل نص ساعة.</li>
+        <li>عايزها تظهر دلوقتي؟ من صفحة المواد الرئيسية دوس الزرار العايم، وبعدها <b class="ui">مزامنة مع الدرايف</b>.</li>
+        <li>المزامنة مش بتغيّر الأسماء اللي انت كتبتها في المنصة، حتى لو اسم الملف على الدرايف اتغير.</li>
+      </ul>
+    </div>
+    <div class="note warn"><b>متعدّلش شيت Catalog بإيدك</b>ده الفهرس اللي المنصة بتقرا منه. أي تعديل اعمله من المنصة نفسها.</div>
+  </section>
+
+  <section id="help">
+    <h2><span class="n">8</span>لو طالب قالك</h2>
+    <div class="qa">
+      <details><summary>"مش عارف أدخل، الكود اتقفل"</summary><p>غالبًا دخل من جهاز أو متصفح تاني والأول لسه داخل، أو حط اختصار المنصة على شاشة الآيفون، والاختصار بيتحسب جهاز تاني. هتلاقيه في تاب للتفعيل. اتأكد منه ووافقوا تاني.</p></details>
+      <details><summary>"مش لاقي مادة"</summary><p>من وضع التعديل شوف أقسام المادة، وتأكد إن قسمه متعلّم عليه. ولو المادة مش ظاهرة خالص، دور عليها في تاب الكل.</p></details>
+      <details><summary>"مش لاقي ملف المحاضرة"</summary><p>لو اترفع على الدرايف مباشرة، اعمل مزامنة مع الدرايف. ولو اترفع من المنصة، شوف هو في أنهي مادة وقسم، وانقله لو مكانه غلط.</p></details>
+      <details><summary>"الملف مش بيفتح"</summary><p>لو بتظهر رسالة إن الملف مش موجود على الدرايف، يبقى اتحذف من هناك. اعمل مزامنة عشان يختفي من المنصة، وارفعه تاني. ولو الملف كبير والنت ضعيف، خلّي الطالب يستنى شوية.</p></details>
+      <details><summary>"عايز أنزّل الملف"</summary><p>التحميل مقفول قصدًا، والملفات بتتفتح جوه المنصة بس، وعليها علامة مائية فيها اسم الطالب وجزء من كوده.</p></details>
+      <details><summary>"انتهت الجلسة وبيطلب الكود تاني"</summary><p>الدخول بيفضل شغال 6 ساعات، وبعدها الطالب بيدخل بالكود تاني من نفس الجهاز عادي، من غير موافقات.</p></details>
+    </div>
+  </section>
+
+  <footer>
+    أي مشكلة في المنصة نفسها كلّمني على واتساب: <a href="https://wa.me/201015785924">‎+20 101 578 5924</a>
+  </footer>
+</main>
+</body>
+</html>

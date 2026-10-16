@@ -10,6 +10,7 @@ This repository hosts the public showcase page and a short link to the app. The 
 |---|---|
 | Showcase | `https://aabdelrahmaanmoo.github.io/materials/` |
 | App (short link) | `https://aabdelrahmaanmoo.github.io/materials/app/` |
+| Admin guide | `https://aabdelrahmaanmoo.github.io/materials/guide/` |
 
 ## Structure
 
@@ -17,6 +18,7 @@ This repository hosts the public showcase page and a short link to the app. The 
 |---|---|
 | `index.html` | Showcase page (Arabic, RTL): features, how to join, home-screen shortcut, FAQ |
 | `app/index.html` | Redirects to the Apps Script web app |
+| `guide/index.html` | Admin guide (Arabic, RTL): approvals, uploads, subjects, sync, troubleshooting |
 
 ## Brand
 
