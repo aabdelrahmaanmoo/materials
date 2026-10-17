@@ -96,6 +96,18 @@
   footer { margin-top:48px; padding:28px 0 40px; border-top:1px solid var(--line); color:var(--soft); font-size:15px; }
   footer a { font-weight:800; color:var(--brand); }
   @media (max-width:480px) { .card { padding:16px; } ol.steps li { padding-right:38px; } }
+  /* Light motion: the chosen section fades in, buttons react to touch */
+  nav.toc a, .pager a, .open-app { transition:transform .15s ease, background-color .2s, color .2s, border-color .2s; }
+  nav.toc a:active, .pager a:active, .open-app:active { transform:scale(.95); }
+  .pager a:hover { border-color:var(--primary); }
+  .js section:not([hidden]) { animation:enter .35s cubic-bezier(.2,.8,.2,1); }
+  .js section:not([hidden]) .card, .js section:not([hidden]) .note { animation:enter .4s cubic-bezier(.2,.8,.2,1) both; }
+  .js section:not([hidden]) .card:nth-of-type(2) { animation-delay:.05s; } .js section:not([hidden]) .card:nth-of-type(3) { animation-delay:.1s; }
+  @keyframes enter { from { opacity:0; transform:translateY(12px); } }
+  .qa details[open] p { animation:fade .3s ease; }
+  @keyframes fade { from { opacity:0; transform:translateY(-4px); } }
+  .hero h1, .hero p { animation:enter .6s cubic-bezier(.2,.8,.2,1) both; } .hero p { animation-delay:.08s; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation:none !important; transition:none !important; } }
 </style>
 </head>
 <body>

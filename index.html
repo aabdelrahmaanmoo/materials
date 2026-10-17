@@ -142,6 +142,25 @@
     .grid, .steps, .install { grid-template-columns:1fr; }
     .btn { flex:1; }
   }
+  /* Light motion: content rises in as it scrolls into view; buttons react to touch */
+  .btn, .top-cta, .wa { transition:transform .15s ease, box-shadow .2s ease, background-color .2s; }
+  .btn:hover, .top-cta:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(14,74,44,.18); }
+  .btn:active, .top-cta:active, .wa:active { transform:scale(.96); box-shadow:none; }
+  .card { transition:transform .2s ease, box-shadow .2s ease; }
+  .card:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(14,74,44,.12); }
+  .js .reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1); transition-delay:calc(var(--i, 0) * 70ms); }
+  .js .reveal.in { opacity:1; transform:none; }
+  .js .hero .wordmark, .js .hero h1, .js .hero .intro, .js .hero .actions, .js .hero .depts { animation:rise .7s cubic-bezier(.2,.8,.2,1) both; }
+  .js .hero h1 { animation-delay:.08s; } .js .hero .intro { animation-delay:.16s; } .js .hero .actions { animation-delay:.24s; } .js .hero .depts { animation-delay:.32s; }
+  .js .phone { animation:float-in .9s cubic-bezier(.2,.8,.2,1) .2s both; }
+  @keyframes rise { from { opacity:0; transform:translateY(16px); } }
+  @keyframes float-in { from { opacity:0; transform:translateY(30px) rotate(-2deg); } }
+  details[open] > p { animation:fade .3s ease; }
+  @keyframes fade { from { opacity:0; transform:translateY(-4px); } }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal { opacity:1; transform:none; transition:none; }
+    *, *::before, *::after { animation:none !important; transition:none !important; }
+  }
 </style>
 </head>
 <body>
@@ -277,5 +296,24 @@
   </div>
 </footer>
 
+<script>
+  // Reveal sections as they scroll into view (content stays visible without JS)
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('js');
+    var groups = ['section h2', '.lead', '.grid .card', '.steps li', '.faq details', '.shortcut > *'];
+    groups.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el, i) {
+        if (el.closest('.hero')) return;
+        el.classList.add('reveal');
+        el.style.setProperty('--i', el.matches('.card, .steps li, .faq details') ? i % 6 : 0);
+      });
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
