@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Materials</title>
-<meta name="description" content="موادك كلها في مكان واحد: محاضرات وسكاشن الفرقة الرابعة، قسم الهندسة الزراعية، مرتبة حسب قسمك.">
+<meta name="description" content="مبادرة طلابية: محاضرات وسكاشن الفرقة الرابعة في مكان واحد، مرتبة حسب قسمك. مش مصدر رسمي.">
 <meta property="og:title" content="Materials">
-<meta property="og:description" content="موادك كلها في مكان واحد: محاضرات وسكاشن الفرقة الرابعة، مرتبة حسب قسمك.">
+<meta property="og:description" content="مبادرة طلابية: محاضرات وسكاشن الفرقة الرابعة في مكان واحد، مرتبة حسب قسمك. مش مصدر رسمي.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0E4A2C">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E4A2C'/%3E%3Ctext x='32' y='46' font-family='Arial Black,Arial' font-weight='900' font-size='40' text-anchor='middle' fill='%23D7F23B'%3EM%3C/text%3E%3C/svg%3E">
@@ -114,6 +114,9 @@
 
   /* FAQ */
   .faq { display:grid; gap:10px; max-width:760px; }
+  /* Not-official notice under the hero buttons */
+  .disclaimer { margin-top:22px; max-width:52ch; padding:14px 16px; border-radius:16px; background:var(--tint); border-inline-start:4px solid var(--brand); font-size:15px; line-height:1.8; color:var(--soft); }
+  .disclaimer b { display:block; color:var(--ink); font-size:16px; margin-bottom:2px; }
   details { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:4px 18px; }
   summary { cursor:pointer; font-weight:800; padding:12px 0; list-style:none; display:flex; justify-content:space-between; gap:12px; }
   summary::-webkit-details-marker { display:none; }
@@ -150,8 +153,8 @@
   .card:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(14,74,44,.12); }
   .js .reveal { opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1); transition-delay:calc(var(--i, 0) * 70ms); }
   .js .reveal.in { opacity:1; transform:none; }
-  .js .hero .wordmark, .js .hero h1, .js .hero .intro, .js .hero .actions, .js .hero .depts { animation:rise .7s cubic-bezier(.2,.8,.2,1) both; }
-  .js .hero h1 { animation-delay:.08s; } .js .hero .intro { animation-delay:.16s; } .js .hero .actions { animation-delay:.24s; } .js .hero .depts { animation-delay:.32s; }
+  .js .hero .wordmark, .js .hero h1, .js .hero .intro, .js .hero .actions, .js .hero .disclaimer, .js .hero .depts { animation:rise .7s cubic-bezier(.2,.8,.2,1) both; }
+  .js .hero h1 { animation-delay:.08s; } .js .hero .intro { animation-delay:.16s; } .js .hero .actions { animation-delay:.24s; } .js .hero .disclaimer { animation-delay:.3s; } .js .hero .depts { animation-delay:.36s; }
   .js .phone { animation:float-in .9s cubic-bezier(.2,.8,.2,1) .2s both; }
   @keyframes rise { from { opacity:0; transform:translateY(16px); } }
   @keyframes float-in { from { opacity:0; transform:translateY(30px) rotate(-2deg); } }
@@ -178,11 +181,15 @@
       <div>
         <p class="wordmark">Materials</p>
         <h1>موادك كلها في مكان واحد، مترتبة على قسمك</h1>
-        <p class="intro">منصة الفرقة الرابعة، قسم الهندسة الزراعية. المحاضرات والسكاشن لكل مادة، تفتحها من موبايلك في ثواني من غير ما تدور في الجروبات.</p>
+        <p class="intro">مبادرة طلابية من طلبة الدفعة، مش تابعة للكلية. المحاضرات والسكاشن لكل مادة، تفتحها من موبايلك في ثواني من غير ما تدور في الجروبات.</p>
         <div class="actions">
           <a class="btn primary" href="https://script.google.com/macros/s/AKfycbzl2Q0M26XLzboMqUEw5xrZ49Q8s4wKj4uXxs0H0Qr_nfQZdyM_7W-kMMJFXjM_ZFwWIA/exec">ادخل المنصة
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
           <a class="btn ghost" href="#join">إزاي أدخل؟</a>
+        </div>
+        <div class="disclaimer" role="note">
+          <b>مجهود طلاب، مش مصدر رسمي</b>
+          المنصة دي بيعملها طلبة متطوعين، ومش تابعة للجامعة ولا الكلية. الملفات ممكن يكون فيها أخطاء، أو تكون ناقصة أو مختلفة عن المقرر عليك. اعتمد دايمًا على كتاب الكلية ومحاضرات الدكاترة، واستخدم المنصة كمساعد بس.
         </div>
         <ul class="depts" aria-label="الأقسام">
           <li>عام هندسة</li><li>هندسة الري والصرف</li><li>هندسة القوى والآلات الزراعية</li><li>هندسة النظم الحيوية</li>
@@ -192,7 +199,7 @@
       <div class="phone" role="img" aria-label="شكل المنصة على الموبايل: قايمة المواد وآخر الملفات اللي اتضافت">
         <div class="screen" aria-hidden="true">
           <div class="s-bar">
-            <div><b>عبدالرحمن محمد</b><span>هندسة الري والصرف</span></div>
+            <div><b>كريستيانو رونالدو</b><span>هندسة الري والصرف</span></div>
             <div class="s-icons">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>
@@ -278,6 +285,7 @@
     <div class="wrap">
       <h2>أسئلة بتتكرر</h2>
       <div class="faq">
+        <details><summary>المنصة دي رسمية من الكلية؟</summary><p>لأ. دي مبادرة من طلبة الدفعة عشان الماتيريال تبقى في مكان واحد. مفيش أي جهة رسمية مسؤولة عنها، وممكن يبقى فيها أخطاء، فالمرجع الأساسي هو كتاب الكلية.</p></details>
         <details><summary>المنصة بفلوس؟</summary><p>لأ، مجانية تمامًا لطلبة الدفعة.</p></details>
         <details><summary>ينفع أدي الكود بتاعي لحد؟</summary><p>لأ، الكود بتاعك لوحدك، وبيشتغل في مكان واحد في نفس الوقت. لو حد دخل بيه، هيتعملك خروج من جهازك، ولو ده اتكرر كذا مرة في نفس اليوم، الكود هيرجع لمراجعة الأدمنز من الأول.</p></details>
         <details><summary>هفضل أكتب الكود كل مرة؟</summary><p>لأ، بتفضل داخل 30 يوم على نفس الموبايل والمتصفح.</p></details>
@@ -289,7 +297,7 @@
 
 <footer>
   <div class="wrap">
-    <p><span class="mark" style="font-size:20px">Materials</span>، الفرقة الرابعة، قسم الهندسة الزراعية</p>
+    <p><span class="mark" style="font-size:20px">Materials</span>، مبادرة طلابية، مش تابعة للجامعة</p>
     <a class="wa" href="https://wa.me/201015785924" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
       الدعم والشكاوي والاقتراحات</a>
