@@ -115,8 +115,15 @@
   /* FAQ */
   .faq { display:grid; gap:10px; max-width:760px; }
   /* Not-official notice under the hero buttons */
-  .disclaimer { margin-top:22px; max-width:52ch; padding:14px 16px; border-radius:16px; background:var(--tint); border-inline-start:4px solid var(--brand); font-size:15px; line-height:1.8; color:var(--soft); }
-  .disclaimer b { display:block; color:var(--ink); font-size:16px; margin-bottom:2px; }
+  .disclaimer { margin-top:22px; max-width:52ch; padding:0 16px; border-radius:16px; background:var(--tint); border-inline-start:4px solid var(--brand); font-size:15px; line-height:1.8; color:var(--soft); }
+  .disclaimer summary { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0; cursor:pointer; list-style:none; color:var(--ink); font-size:16px; font-weight:800; }
+  .disclaimer summary::-webkit-details-marker { display:none; }
+  .disclaimer summary::after { content:""; flex:none; width:9px; height:9px; border-right:2px solid var(--soft); border-bottom:2px solid var(--soft); transform:translateY(-2px) rotate(45deg); transition:transform .25s ease; }
+  .disclaimer[open] summary::after { content:""; transform:translateY(2px) rotate(-135deg); }
+  .disclaimer p { margin:0 0 14px; }
+  /* Phone mockup with the departments under it */
+  .hero-side { display:grid; justify-items:center; gap:20px; }
+  .hero-side .depts { justify-content:center; margin-top:0; max-width:340px; }
   details { background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:4px 18px; }
   summary { cursor:pointer; font-weight:800; padding:12px 0; list-style:none; display:flex; justify-content:space-between; gap:12px; }
   summary::-webkit-details-marker { display:none; }
@@ -155,7 +162,7 @@
   .js .reveal.in { opacity:1; transform:none; }
   .js .hero .wordmark, .js .hero h1, .js .hero .intro, .js .hero .actions, .js .hero .disclaimer, .js .hero .depts { animation:rise .7s cubic-bezier(.2,.8,.2,1) both; }
   .js .hero h1 { animation-delay:.08s; } .js .hero .intro { animation-delay:.16s; } .js .hero .actions { animation-delay:.24s; } .js .hero .disclaimer { animation-delay:.3s; } .js .hero .depts { animation-delay:.36s; }
-  .js .phone { animation:float-in .9s cubic-bezier(.2,.8,.2,1) .2s both; }
+  .js .hero-side { animation:float-in .9s cubic-bezier(.2,.8,.2,1) .2s both; }
   @keyframes rise { from { opacity:0; transform:translateY(16px); } }
   @keyframes float-in { from { opacity:0; transform:translateY(30px) rotate(-2deg); } }
   details[open] > p { animation:fade .3s ease; }
@@ -187,15 +194,13 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></a>
           <a class="btn ghost" href="#join">إزاي أدخل؟</a>
         </div>
-        <div class="disclaimer" role="note">
-          <b>مجهود طلاب، مش مصدر رسمي</b>
-          المنصة دي بيعملها طلبة متطوعين، ومش تابعة للجامعة ولا الكلية. الملفات ممكن يكون فيها أخطاء، أو تكون ناقصة أو مختلفة عن المقرر عليك. اعتمد دايمًا على كتاب الكلية ومحاضرات الدكاترة، واستخدم المنصة كمساعد بس.
-        </div>
-        <ul class="depts" aria-label="الأقسام">
-          <li>عام هندسة</li><li>هندسة الري والصرف</li><li>هندسة القوى والآلات الزراعية</li><li>هندسة النظم الحيوية</li>
-        </ul>
+        <details class="disclaimer">
+          <summary>مجهود طلاب، مش مصدر رسمي</summary>
+          <p>المنصة دي بيعملها طلبة متطوعين، ومش تابعة للجامعة ولا الكلية. الملفات ممكن يكون فيها أخطاء، أو تكون ناقصة أو مختلفة عن المقرر عليك. اعتمد دايمًا على كتاب الكلية ومحاضرات الدكاترة، واستخدم المنصة كمساعد بس.</p>
+        </details>
       </div>
 
+      <div class="hero-side">
       <div class="phone" role="img" aria-label="شكل المنصة على الموبايل: قايمة المواد وآخر الملفات اللي اتضافت">
         <div class="screen" aria-hidden="true">
           <div class="s-bar">
@@ -227,6 +232,10 @@
             </div>
           </div>
         </div>
+      </div>
+        <ul class="depts" aria-label="الأقسام">
+          <li>عام هندسة</li><li>هندسة الري والصرف</li><li>هندسة القوى والآلات الزراعية</li><li>هندسة النظم الحيوية</li>
+        </ul>
       </div>
     </div>
   </section>
